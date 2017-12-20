@@ -74,7 +74,8 @@ public class BrokerRepositoryProvider implements RepositoryProvider {
 
         URL url = new URL(path);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.setRequestProperty("Accept", "application/json");
+        connection.setRequestProperty("Content-Type", "application/json");
+        connection.setRequestProperty("Accept-Charset", "utf-8");
         connection.setDoInput(true);
         connection.setDoOutput(true);
         addBasicAuthTo(connection);
